@@ -3,4 +3,4 @@
 Лендинг для детской образовательной студии, разработанный с использованием HTML и CSS.
 
 ## Как использовать
-Просто откройте [сайт](https://ваш-username.github.io/kids-studio-landing/).
+Просто откройте [сайт](https://eugen-python.github.io/web_school/).
