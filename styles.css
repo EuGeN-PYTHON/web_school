@@ -21,43 +21,88 @@ h1, h2, h3 {
 
 /* Шапка */
 header {
-    background: #ffffff;
-    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(255, 255, 255, 0.9); /* Прозрачный белый фон */
+    backdrop-filter: blur(10px); /* Размытие фона */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background 0.3s ease, padding 0.3s ease;
+}
+
+header.scrolled {
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.95); /* Более плотный фон при прокрутке */
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header .logo {
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
 header .logo img {
-    width: 50px;
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
     border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+header .logo:hover img {
+    transform: rotate(360deg);
 }
 
 header .logo span {
     font-size: 24px;
     font-weight: bold;
     color: #333;
+    font-family: 'Comic Neue', cursive;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
 }
 
 header nav ul li a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
     transition: color 0.3s ease;
+}
+
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ff6f61;
+    transition: width 0.3s ease;
 }
 
 header nav ul li a:hover {
     color: #ff6f61;
+}
+
+header nav ul li a:hover::after {
+    width: 100%;
 }
 
 /* Герой */
