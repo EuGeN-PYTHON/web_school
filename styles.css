@@ -5,6 +5,7 @@ body {
     padding: 0;
     color: #333;
     line-height: 1.6;
+    background: #f9f9f9;
 }
 
 h1, h2, h3 {
@@ -20,8 +21,9 @@ h1, h2, h3 {
 
 /* Шапка */
 header {
-    background: #ffcc00;
+    background: linear-gradient(90deg, #ffcc00, #ff9a00);
     padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header .logo {
@@ -32,6 +34,7 @@ header .logo {
 header .logo img {
     width: 50px;
     margin-right: 10px;
+    border-radius: 50%;
 }
 
 header .logo span {
@@ -50,6 +53,11 @@ header nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: #ff6f61;
 }
 
 /* Герой */
@@ -57,44 +65,85 @@ header nav ul li a {
     background: url('hero-bg.jpg') no-repeat center center/cover;
     color: #fff;
     text-align: center;
-    padding: 100px 0;
+    padding: 150px 0;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 {
     font-size: 48px;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero p {
     font-size: 24px;
     margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .hero .btn {
     background: #ff6f61;
     color: #fff;
-    padding: 10px 20px;
+    padding: 15px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
+    font-size: 18px;
+    transition: background 0.3s ease, transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.hero .btn:hover {
+    background: #ff4a3d;
+    transform: scale(1.05);
 }
 
 /* О нас */
 .about {
-    padding: 50px 0;
+    padding: 80px 0;
     text-align: center;
+    background: #fff;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px;
 }
 
 .about img {
     max-width: 100%;
-    border-radius: 10px;
-    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Услуги */
 .services {
     background: #f4f4f4;
-    padding: 50px 0;
+    padding: 80px 0;
     text-align: center;
+}
+
+.services h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
 .service-list {
@@ -106,16 +155,44 @@ header nav ul li a {
 
 .service-item {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 20px;
     width: 30%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.service-item h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.service-item i {
+    font-size: 40px;
+    color: #ff6f61;
+    margin-bottom: 20px;
 }
 
 /* Отзывы */
 .reviews {
-    padding: 50px 0;
+    padding: 80px 0;
     text-align: center;
+    background: #fff;
+}
+
+.reviews h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
 }
 
 .review-list {
@@ -127,39 +204,75 @@ header nav ul li a {
 
 .review-item {
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
+    padding: 30px;
+    border-radius: 20px;
     width: 45%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.review-item p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.review-item span {
+    font-size: 14px;
+    color: #999;
 }
 
 /* Контакты */
 .contact {
-    padding: 50px 0;
+    padding: 80px 0;
     text-align: center;
+    background: #f4f4f4;
+}
+
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.contact p {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 .contact form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
     max-width: 400px;
     margin: 0 auto;
 }
 
 .contact input, .contact textarea {
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
 .contact button {
     background: #ff6f61;
     color: #fff;
-    padding: 10px;
+    padding: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 18px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.contact button:hover {
+    background: #ff4a3d;
+    transform: scale(1.05);
 }
 
 /* Футер */
@@ -168,6 +281,11 @@ footer {
     color: #fff;
     text-align: center;
     padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 14px;
 }
 
 /* Адаптивность */
